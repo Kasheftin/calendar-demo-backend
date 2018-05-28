@@ -1,5 +1,6 @@
 export default (sequelize, DataTypes) => {
   const Rule = sequelize.define('Rule', {
+    calendar_id: DataTypes.STRING,
     timeblock_id: DataTypes.INTEGER,
     type: DataTypes.STRING,
     value: DataTypes.STRING,

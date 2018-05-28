@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import sequelize from 'sequelize'
+import uniqid from 'uniqid'
 import config from './config'
 import models from './models'
 import utils from './fn/utils'
@@ -18,7 +19,7 @@ try {
     res.json({type: 'success', message: 'Default API route lives here.'})
   })
 
-  app.use('/calendar', require('./controllers/calendar')({express, sequelize, config, ...models, ...utils, ...prepare, ...rules}))
+  app.use('/calendar', require('./controllers/calendar')({express, sequelize, uniqid, config, ...models, ...utils, ...prepare, ...rules}))
 
   app.listen(config.port)
   console.log('App is running on port ' + config.port)
